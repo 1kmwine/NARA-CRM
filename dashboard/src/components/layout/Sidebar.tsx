@@ -3,48 +3,73 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Users,
   BarChart2,
-  MessageSquare,
   LayoutDashboard,
   Wine,
-  PieChart,
+  Users,
+  UserX,
+  ShoppingBag,
+  TrendingUp,
   Megaphone,
-  ShoppingCart,
+  Target,
   ChevronRight,
 } from "lucide-react";
 
 interface NavItem {
   href: string;
   label: string;
+  no: string;
   icon: React.ElementType;
   children?: { href: string; label: string }[];
 }
 
 const navItems: NavItem[] = [
-  { href: "/dashboard", label: "CRM 종합현황", icon: LayoutDashboard },
+  {
+    href: "/dashboard",
+    label: "CRM 종합 현황",
+    no: "1",
+    icon: LayoutDashboard,
+  },
   {
     href: "/segments",
-    label: "고객 세그먼트",
-    icon: PieChart,
+    label: "고객 세그먼트 분석",
+    no: "2",
+    icon: Users,
+  },
+  {
+    href: "/retention",
+    label: "재방문 & 휴면 고객",
+    no: "3",
+    icon: UserX,
+  },
+  {
+    href: "/products",
+    label: "상품 & 카테고리 분석",
+    no: "4",
+    icon: ShoppingBag,
+  },
+  {
+    href: "/patterns",
+    label: "고객 구매 패턴 분석",
+    no: "5",
+    icon: TrendingUp,
     children: [
-      { href: "/segments/grade-changes", label: "등급변화" },
-      { href: "/segments/retention", label: "재방문" },
+      { href: "/patterns/all", label: "전체 패턴 분석" },
+      { href: "/patterns/customer", label: "고객별 CRM 분석" },
     ],
   },
   {
-    href: "/sales",
-    label: "판매 현황",
-    icon: BarChart2,
-    children: [
-      { href: "/sales/monthly", label: "월별" },
-      { href: "/sales/customer", label: "고객별" },
-    ],
+    href: "/campaigns",
+    label: "캠페인별 성과 분석",
+    no: "6",
+    icon: Megaphone,
   },
-  { href: "/campaigns", label: "캠페인", icon: Megaphone },
-  { href: "/winepicks", label: "자사몰 연동", icon: ShoppingCart },
-  { href: "/customers", label: "고객 관리", icon: Users },
-  { href: "/consultations", label: "상담 이력", icon: MessageSquare },
+  {
+    href: "/targeting",
+    label: "Targeted Marketing",
+    no: "7",
+    icon: Target,
+  },
 ];
 
 export default function Sidebar() {
@@ -56,25 +81,30 @@ export default function Sidebar() {
         <Wine className="w-6 h-6 text-amber-400" />
         <span className="text-lg font-semibold tracking-tight">NARA CRM</span>
       </div>
-      <nav className="flex-1 px-3 py-4 space-y-1">
-        {navItems.map(({ href, label, icon: Icon, children }) => {
+      <nav className="flex-1 px-3 py-4 space-y-0.5">
+        {navItems.map(({ href, label, no, icon: Icon, children }) => {
           const active = pathname === href || (href !== "/dashboard" && pathname.startsWith(href));
           return (
             <div key={href}>
               <Link
                 href={href}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   active
                     ? "bg-amber-500 text-zinc-900"
                     : "text-zinc-400 hover:bg-zinc-800 hover:text-white"
                 }`}
               >
-                <Icon className="w-4 h-4" />
-                <span className="flex-1">{label}</span>
-                {children && <ChevronRight className={`w-3 h-3 transition-transform ${active ? "rotate-90" : ""}`} />}
+                <span className={`text-[10px] font-bold w-5 text-center shrink-0 ${active ? "text-zinc-700" : "text-zinc-600"}`}>
+                  {no}
+                </span>
+                <Icon className="w-3.5 h-3.5 shrink-0" />
+                <span className="flex-1 leading-tight">{label}</span>
+                {children && (
+                  <ChevronRight className={`w-3 h-3 shrink-0 transition-transform ${active ? "rotate-90" : ""}`} />
+                )}
               </Link>
               {children && active && (
-                <div className="ml-7 mt-1 space-y-1">
+                <div className="ml-8 mt-0.5 mb-1 space-y-0.5">
                   {children.map((child) => {
                     const childActive = pathname.startsWith(child.href);
                     return (
@@ -87,7 +117,7 @@ export default function Sidebar() {
                             : "text-zinc-500 hover:bg-zinc-800 hover:text-zinc-300"
                         }`}
                       >
-                        <span className="w-1 h-1 rounded-full bg-current" />
+                        <span className="w-1 h-1 rounded-full bg-current shrink-0" />
                         {child.label}
                       </Link>
                     );
