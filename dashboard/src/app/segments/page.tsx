@@ -1,14 +1,15 @@
 import Header from "@/components/layout/Header";
-import GradeUpDownChart from "@/components/customers/GradeUpDownChart";
-import VisitRetentionChart from "@/components/customers/VisitRetentionChart";
-import GradeCustomerBarChart from "@/components/customers/GradeCustomerBarChart";
-import GradeSalesBarChart from "@/components/customers/GradeSalesBarChart";
-import { ArrowUpRight, ArrowDownRight, MessageSquare } from "lucide-react";
+import GradeShareDonut from "@/components/customers/GradeShareDonut";
+import MemberChangeStats from "@/components/customers/MemberChangeStats";
+import VvipRankTable from "@/components/customers/VvipRankTable";
+import MemberTrendLine from "@/components/customers/MemberTrendLine";
+import { MmsButton } from "@/components/ui/MmsButton";
+import Link from "next/link";
 
-const gradeChanges = [
-  { grade: "VVIP", up: 12, down: 5, color: "text-amber-600 bg-amber-50" },
-  { grade: "VIP", up: 34, down: 18, color: "text-blue-600 bg-blue-50" },
-  { grade: "일반", up: 58, down: 29, color: "text-zinc-600 bg-zinc-100" },
+const tabs = [
+  { label: "개요", href: "/segments" },
+  { label: "등급변화", href: "/segments/grade-changes" },
+  { label: "재방문", href: "/segments/retention" },
 ];
 
 export default function SegmentsPage() {
@@ -16,45 +17,37 @@ export default function SegmentsPage() {
     <>
       <Header title="고객 세그먼트 분석" />
       <main className="flex-1 p-6 space-y-6">
-
-        {/* 등급 변화 요약 */}
-        <div className="grid grid-cols-3 gap-4">
-          {gradeChanges.map((g) => (
-            <div key={g.grade} className="bg-white rounded-xl border border-zinc-200 p-5">
-              <div className="flex items-center justify-between mb-3">
-                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${g.color}`}>{g.grade}</span>
-                <button className="flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-600">
-                  <MessageSquare className="w-3.5 h-3.5" /> MMS 발송
-                </button>
-              </div>
-              <div className="flex gap-6">
-                <div>
-                  <div className="flex items-center gap-1 text-emerald-600">
-                    <ArrowUpRight className="w-4 h-4" />
-                    <span className="text-lg font-bold">{g.up}명</span>
-                  </div>
-                  <p className="text-xs text-zinc-400 mt-0.5">등급 상향</p>
-                </div>
-                <div>
-                  <div className="flex items-center gap-1 text-red-500">
-                    <ArrowDownRight className="w-4 h-4" />
-                    <span className="text-lg font-bold">{g.down}명</span>
-                  </div>
-                  <p className="text-xs text-zinc-400 mt-0.5">등급 하향</p>
-                </div>
-              </div>
-            </div>
+        {/* 탭 */}
+        <div className="flex gap-1 bg-zinc-100 p-1 rounded-lg w-fit">
+          {tabs.map((tab) => (
+            <Link
+              key={tab.href}
+              href={tab.href}
+              className="px-4 py-2 rounded-md text-sm font-medium bg-white text-zinc-800 shadow-sm"
+            >
+              {tab.label}
+            </Link>
           ))}
         </div>
 
-        {/* 차트 2열 그리드 */}
+        {/* Row 1 */}
         <div className="grid grid-cols-2 gap-4">
-          <GradeCustomerBarChart />
-          <GradeSalesBarChart />
+          <GradeShareDonut />
+          <MemberChangeStats />
         </div>
+
+        {/* Row 2 */}
         <div className="grid grid-cols-2 gap-4">
-          <GradeUpDownChart />
-          <VisitRetentionChart />
+          <VvipRankTable />
+          <MemberTrendLine />
+        </div>
+
+        {/* MMS 버튼 */}
+        <div className="flex flex-wrap gap-3">
+          <MmsButton label="VVIP" count={142} />
+          <MmsButton label="VIP" count={489} />
+          <MmsButton label="일반" count={1876} />
+          <MmsButton label="임직원" count={340} />
         </div>
       </main>
     </>
