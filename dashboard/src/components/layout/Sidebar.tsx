@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Users, BarChart2, MessageSquare, LayoutDashboard, Wine } from "lucide-react";
+import { Users, BarChart2, MessageSquare, LayoutDashboard, Wine, PieChart } from "lucide-react";
 
 const navItems = [
-  { href: "/dashboard", label: "대시보드", icon: LayoutDashboard },
+  { href: "/dashboard", label: "CRM 종합현황", icon: LayoutDashboard },
+  { href: "/segments", label: "고객 세그먼트", icon: PieChart },
   { href: "/customers", label: "고객 관리", icon: Users },
   { href: "/sales", label: "판매/매출", icon: BarChart2 },
   { href: "/consultations", label: "상담 이력", icon: MessageSquare },
