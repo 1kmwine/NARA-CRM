@@ -15,7 +15,7 @@ export function MmsButton({ label, count }: MmsButtonProps) {
   return (
     <button
       onClick={handleClick}
-      className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-sm font-medium transition-colors"
+      className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-accent-500 hover:bg-accent-600 text-white text-sm font-medium transition-colors"
     >
       <MessageSquare className="w-4 h-4" />
       {label} MMS 발송

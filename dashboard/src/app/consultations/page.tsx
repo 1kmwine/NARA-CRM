@@ -22,7 +22,7 @@ export default function ConsultationsPage() {
       <main className="flex-1 p-6">
         <div className="flex items-center justify-between mb-4">
           <p className="text-sm text-zinc-500">총 {consultations.length}건의 상담 이력</p>
-          <button className="flex items-center gap-2 px-4 py-2 bg-amber-500 text-white text-sm font-medium rounded-lg hover:bg-amber-600 transition-colors">
+          <button className="flex items-center gap-2 px-4 py-2 bg-accent-500 text-white text-sm font-medium rounded-lg hover:bg-accent-600 transition-colors">
             <Plus className="w-4 h-4" />
             상담 등록
           </button>

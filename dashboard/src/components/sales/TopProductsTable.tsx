@@ -16,7 +16,7 @@ export default function TopProductsTable() {
           <p className="text-sm font-semibold text-zinc-800">판매 TOP 20</p>
           <p className="text-xs text-zinc-400 mt-0.5">이번달 판매량 기준</p>
         </div>
-        <button className="text-xs text-amber-600 font-medium hover:underline flex items-center gap-1">
+        <button className="text-xs text-accent-600 font-medium hover:underline flex items-center gap-1">
           전체 보기 <ChevronRight className="w-3.5 h-3.5" />
         </button>
       </div>

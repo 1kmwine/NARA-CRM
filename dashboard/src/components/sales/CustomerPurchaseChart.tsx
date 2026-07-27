@@ -26,7 +26,7 @@ export default function CustomerPurchaseChart() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="고객 이름 검색..."
-            className="w-full pl-8 pr-3 py-1.5 text-xs border border-zinc-200 rounded-lg bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="w-full pl-8 pr-3 py-1.5 text-xs border border-zinc-200 rounded-lg bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-accent-500/40"
           />
         </div>
       </div>

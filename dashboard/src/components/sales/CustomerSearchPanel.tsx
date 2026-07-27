@@ -24,7 +24,7 @@ export default function CustomerSearchPanel({ selectedId, onSelect }: CustomerSe
         <input
           type="text"
           placeholder="고객 이름 검색..."
-          className="w-full pl-9 pr-4 py-2 text-sm border border-zinc-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
+          className="w-full pl-9 pr-4 py-2 text-sm border border-zinc-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500/40"
         />
       </div>
       <div className="flex flex-wrap gap-2">
@@ -34,7 +34,7 @@ export default function CustomerSearchPanel({ selectedId, onSelect }: CustomerSe
             onClick={() => onSelect(c.id)}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
               selectedId === c.id
-                ? "bg-amber-500 text-white"
+                ? "bg-accent-500 text-white"
                 : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200"
             }`}
           >

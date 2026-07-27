@@ -78,7 +78,7 @@ export default function Sidebar() {
   return (
     <aside className="w-64 min-h-screen bg-zinc-900 text-white flex flex-col">
       <div className="flex items-center gap-3 px-6 py-5 border-b border-zinc-700">
-        <Wine className="w-6 h-6 text-amber-400" />
+        <Wine className="w-6 h-6 text-accent-500" />
         <span className="text-lg font-semibold tracking-tight">NARA CRM</span>
       </div>
       <nav className="flex-1 px-3 py-4 space-y-0.5">
@@ -90,7 +90,7 @@ export default function Sidebar() {
                 href={href}
                 className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   active
-                    ? "bg-amber-500 text-zinc-900"
+                    ? "bg-accent-500 text-zinc-900"
                     : "text-zinc-400 hover:bg-zinc-800 hover:text-white"
                 }`}
               >
@@ -113,7 +113,7 @@ export default function Sidebar() {
                         href={child.href}
                         className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
                           childActive
-                            ? "bg-amber-400/20 text-amber-300"
+                            ? "bg-accent-500/20 text-accent-300"
                             : "text-zinc-500 hover:bg-zinc-800 hover:text-zinc-300"
                         }`}
                       >

@@ -16,13 +16,13 @@ export default function Header({ title }: HeaderProps) {
           <input
             type="text"
             placeholder="검색..."
-            className="pl-9 pr-4 py-1.5 text-sm border border-zinc-200 rounded-lg bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-amber-400 w-48"
+            className="pl-9 pr-4 py-1.5 text-sm border border-zinc-200 rounded-lg bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-accent-500/40 w-48"
           />
         </div>
         <button className="relative p-2 rounded-lg hover:bg-zinc-100">
           <Bell className="w-4 h-4 text-zinc-500" />
         </button>
-        <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-xs font-bold text-white">
+        <div className="w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center text-xs font-bold text-white">
           N
         </div>
       </div>

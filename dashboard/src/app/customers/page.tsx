@@ -26,10 +26,10 @@ export default function CustomersPage() {
             <input
               type="text"
               placeholder="고객 이름, 연락처 검색..."
-              className="pl-9 pr-4 py-2 text-sm border border-zinc-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-amber-400 w-64"
+              className="pl-9 pr-4 py-2 text-sm border border-zinc-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-accent-500/40 w-64"
             />
           </div>
-          <button className="flex items-center gap-2 px-4 py-2 bg-amber-500 text-white text-sm font-medium rounded-lg hover:bg-amber-600 transition-colors">
+          <button className="flex items-center gap-2 px-4 py-2 bg-accent-500 text-white text-sm font-medium rounded-lg hover:bg-accent-600 transition-colors">
             <Plus className="w-4 h-4" />
             고객 등록
           </button>
